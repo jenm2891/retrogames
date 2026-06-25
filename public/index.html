@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot Arcade</title>
+    <link rel="stylesheet" href="css/arcade-style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="main-nav">
+  <ul>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+    <div class="scanline"></div>
+    <main class="arcade-cabinet">
+        <header class="arcade-header">
+            <h1 class="flicker">AppSec</h1>
+            <h1 class="logo-text">CHATBOT ARCADE</h1>
+        </header>
+
+        <form id="game-form" class="game-selector">
+            <label for="game-select">SELECT ADVENTURE</label>
+            <select id="game-select">
+                <option value="" disabled selected>--- CHOOSE A GAME ---</option>
+                <option value="pirategame.html">Pirate Negotiations</option>
+                <option value="dnd.html">Dragon's Lair</option>
+                <option value="empire.html">Empire</option>
+                <option value="appsec.html">AppSec Mansion</option>
+                <option value="aifrenz.html">AI Frenz</option>
+            </select>
+            <button type="submit">LOAD GAME</button>
+        </form>
+
+        <footer class="arcade-footer">
+            <p><span class="flicker">© 2025</span> Rogue Valley Ai</p>
+        </footer>
+    </main>
+    
+    <script src="js/arcade-script.js"></script>
+</body>
+</html>

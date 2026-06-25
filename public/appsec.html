@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AppSec Mansion</title>
+    <link rel="stylesheet" href="css/appsec-mansion-style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="main-nav">
+  <ul>
+    <li><a href="index.html">Home</a></li>
+  </ul>
+</nav>
+
+    <div id="game-container">
+        <header id="game-header">
+            <h1>AppSec Mansion</h1>
+        </header>
+
+        <main id="main-screen">
+            <div id="room-visual">
+                <div class="image-placeholder">
+                    <p>Loading Mainframe...</p>
+                </div>
+                <img id="room-image" src="" alt="The current room" style="display: none;">
+            </div>
+            <div id="text-window">
+                <p id="description-text">You are an Application Security Engineer, sent to investigate strange vulnerabilities reported at the old "Stark Advanced Research" building. Your mission: find and patch the security holes before they're exploited. You stand in the dusty lobby.</p>
+            </div>
+        </main>
+
+        <footer id="player-interface">
+            <div id="verb-container">
+                <!-- Action verbs will be dynamically created here -->
+            </div>
+            <div id="inventory-container">
+                <h2>INVENTORY</h2>
+                <ul id="inventory-list">
+                    <!-- Inventory items will appear here -->
+                </ul>
+            </div>
+        </footer>
+    </div>
+
+    <div id="loading-overlay">
+        <div class="loading-box">
+            <div class="spinner"></div>
+            <p>ANALYZING...</p>
+        </div>
+    </div>
+    
+    <script src="js/appsec-mansion-script.js"></script>
+
+</body>
+</html>

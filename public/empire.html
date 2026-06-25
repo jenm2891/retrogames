@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age of Empires AI</title>
+    <link rel="stylesheet" href="css/empire-style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Quattrocento&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="main-nav">
+  <ul>
+    <li><a href="index.html">Home</a></li>
+  </ul>
+</nav>
+
+    <div id="game-container">
+        <header id="dashboard">
+            <h1 id="empire-name">The First Kingdom</h1>
+            <div id="resource-bar">
+                <div class="resource-item" id="turn-display">Turn: <span>1</span></div>
+                <div class="resource-item" id="population-display">Pop: <span>100</span></div>
+                <div class="resource-item" id="food-display">Food: <span>50</span></div>
+                <div class="resource-item" id="wood-display">Wood: <span>50</span></div>
+                <div class="resource-item" id="gold-display">Gold: <span>10</span></div>
+                <div class="resource-item" id="military-display">Army: <span>5</span></div>
+            </div>
+        </header>
+
+        <main id="event-window">
+            <div id="empire-visual">
+                <div class="image-placeholder">
+                    <p>Chronicling the birth of your empire...</p>
+                </div>
+                <img id="empire-image" src="" alt="A view of your empire." style="display: none;">
+            </div>
+            <div id="event-content">
+                <h2 id="event-name">The Dawn of a New Age</h2>
+                <p id="event-description">Your people look to you for guidance.</p>
+            </div>
+            <div id="choices-container">
+                <!-- AI-generated choices will appear here -->
+            </div>
+        </main>
+    </div>
+
+    <div id="loading-overlay">
+        <div class="loading-box">
+            <div class="spinner"></div>
+            <p>The world turns, and a new day dawns...</p>
+        </div>
+    </div>
+
+    <script src="js/empire-script.js"></script>
+
+</body>
+</html>

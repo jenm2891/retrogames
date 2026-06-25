@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Frenz</title>
+    <link rel="stylesheet" href="css/frenz-style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="main-nav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+        </ul>
+    </nav>
+
+    <div id="chat-container">
+        <header id="chat-header">
+            <h1>Chat with your AI Frenz</h1>
+            <p id="user-status">Loading...</p>
+        </header>
+        <div id="chat-window">
+            <!-- Chat messages will appear here -->
+        </div>
+        <form id="chat-form">
+            <input type="text" id="chat-input" placeholder="Type a message..." autocomplete="off" disabled>
+            <button type="submit" id="send-button" disabled>Send</button>
+        </form>
+    </div>
+
+    <script src="js/frenz-script.js"></script>
+</body>
+</html>

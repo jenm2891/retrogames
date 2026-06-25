@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dragon's Lair - A D&D Adventure</title>
+    <link rel="stylesheet" href="css/dnd-style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&family=Uncial+Antiqua&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="main-nav">
+  <ul>
+    <li><a href="public/index.html">Home</a></li>
+  </ul>
+</nav>
+
+    <div id="game-container">
+        <header class="game-header">
+            <h1 class="title-font">Dragon's Lair</h1>
+            <p class="story-font">An AI-Powered Adventure</p>
+        </header>
+
+        <main id="adventure-window">
+            <div id="image-container">
+                <div class="image-placeholder">
+                    <p>Awaiting visions...</p>
+                </div>
+                <img id="story-image" src="" alt="A scene from your adventure." style="display: none;">
+            </div>
+            <div id="story-text" class="story-font">
+                <p>Your legend is about to begin...</p>
+            </div>
+            <div id="choices-container">
+                <!-- Player choice buttons will be generated here by the AI -->
+            </div>
+        </main>
+    </div>
+
+    <div id="loading-overlay">
+        <div class="loading-box">
+            <div class="spinner"></div>
+            <p>The Dungeon Master is pondering your fate...</p>
+        </div>
+    </div>
+
+    <script src="js/dnd-script.js"></script>
+</body>
+</html>

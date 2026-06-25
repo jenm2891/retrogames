@@ -1,0 +1,13 @@
+#:schema node_modules/wrangler/config-schema.json
+name = "arcadia-nostalgia"
+main = "src/worker.js"
+compatibility_date = "2026-06-22"
+
+# 1. Tells Cloudflare where to find your frontend HTML/CSS/JS files
+[assets]
+directory = "public"
+
+# 2. Environment Variables for your S3 Client (Cloudflare R2 Storage)
+[vars]
+S3_ENDPOINT = "https://2002ff77ce5acd1d2701d0b61f5f48f2.r2.cloudflarestorage.com"
+S3_BUCKET_NAME = "cbg1"

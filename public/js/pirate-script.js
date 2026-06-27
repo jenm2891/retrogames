@@ -109,9 +109,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 })
             });
 
-            if (!response.ok) throw new Error(`AI API error: ${response.status} ${response.statusText}`);
-            const result = await response.json();
+            if (!response.ok) {
+                const errorDetails = await response.text();
+                throw new Error(`Worker Error Details: ${response.status} - ${errorDetails}`);
+            }
 
+            const result = await response.json();
             if (!result.candidates || !result.candidates[0].content) {
                 throw new Error("Invalid AI response structure received.");
             }

@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 },
                 body: JSON.stringify({ 
                     contents: requestHistory,
-                    generation_config: { response_mime_type: "application/json" }
+                    generationConfig: { responseMimeType: "application/json" }
                 })
             });
 

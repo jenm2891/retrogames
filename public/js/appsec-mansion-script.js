@@ -131,7 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 },
                 body: JSON.stringify({ 
                     contents: [{ role: 'user', parts: [{ text: prompt }] }],
-                    generation_config: { response_mime_type: "application/json" }
+                    generationConfig: { responseMimeType: "application/json" }
                 })
             });
             

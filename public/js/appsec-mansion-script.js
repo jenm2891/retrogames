@@ -124,10 +124,12 @@ document.addEventListener('DOMContentLoaded', () => {
         
         try {
             // Send exactly the data structure the worker's security check demands
+   // Send exactly the data structure the worker's security check demands
             const response = await fetch(workerProxyUrl, {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'X-Destination-Url': 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent'
                 },
                 body: JSON.stringify({ 
                     contents: [{ parts: [{ text: prompt }] }] 

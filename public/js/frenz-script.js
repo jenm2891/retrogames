@@ -61,10 +61,16 @@ document.addEventListener('DOMContentLoaded', () => {
         sendButton.disabled = true;
 
         try {
-            const response = await fetch('/api/chat', {
+// Send exactly the data structure the worker's security check demands
+            const response = await fetch(workerProxyUrl, {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ action: 'send', userId: userId, message: userMessage }),
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-Destination-Url': 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent'
+                },
+                body: JSON.stringify({ 
+                    contents: [{ parts: [{ text: userMessage }] }] 
+                })
             });
             if (!response.ok) throw new Error('Failed to get AI response.');
             
@@ -82,9 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- Initialization ---
-    function initialize() {
-        // In a real app, this would come from a proper login system.
-        // For now, we'll simulate it with a prompt and store it in localStorage.
+    function initialize() {    
         userName = localStorage.getItem('chatbot_username');
         if (!userName) {
             userName = prompt("Welcome! To save your chat, please enter your name:");

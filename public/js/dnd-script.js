@@ -91,13 +91,16 @@ document.addEventListener('DOMContentLoaded', () => {
         const destinationApi = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent';
 
         try {
+            // Send exactly the data structure the worker's security check demands
             const response = await fetch(workerProxyUrl, {
                 method: 'POST',
-                headers: { 
+                headers: {
                     'Content-Type': 'application/json',
-                    'X-Destination-Url': destinationApi
+                    'X-Destination-Url': 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent'
                 },
-                body: JSON.stringify(payload)
+                body: JSON.stringify({ 
+                    contents: [{ parts: [{ text: prompt }] }] 
+                })
             });
 
             if (!response.ok) throw new Error(`AI API request failed with status ${response.status}`);

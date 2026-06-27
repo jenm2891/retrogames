@@ -123,16 +123,15 @@ document.addEventListener('DOMContentLoaded', () => {
         const prompt = `You are the game engine for a 'Maniac Mansion' style AppSec adventure game. The player's current state is: ${JSON.stringify(gameState)}. The player performs the action: "${verb} ${object}". Based on this, generate the outcome. The puzzles are metaphors for application security concepts. You MUST respond with a single JSON object with no other text. The JSON object must strictly follow this schema: { "description": "A description of what happens.", "imagePrompt": "A new, short image prompt for the room's visual state.", "newRoom": "The name of the new room if the player moved, otherwise the same as currentRoom.", "updatedInventory": ["An array of all items in the player's inventory after the action."], "updatedRoomObjects": ["An array of all objects in the current room after the action."] }`;
         
         try {
-            // Send exactly the data structure the worker's security check demands
-   // Send exactly the data structure the worker's security check demands
             const response = await fetch(workerProxyUrl, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'X-Destination-Url': 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent'
+                    'X-Destination-Url': 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent'
                 },
                 body: JSON.stringify({ 
-                    contents: [{ parts: [{ text: prompt }] }] 
+                    contents: [{ role: 'user', parts: [{ text: prompt }] }],
+                    generationConfig: { responseMimeType: "application/json" }
                 })
             });
             

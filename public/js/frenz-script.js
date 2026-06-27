@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- State ---
     let userId = null;
     let userName = null;
+    const workerProxyUrl = '/api/proxy';
 
     // --- Functions ---
     
@@ -61,7 +62,6 @@ document.addEventListener('DOMContentLoaded', () => {
         sendButton.disabled = true;
 
         try {
-// Send exactly the data structure the worker's security check demands
             const response = await fetch(workerProxyUrl, {
                 method: 'POST',
                 headers: {
@@ -69,13 +69,15 @@ document.addEventListener('DOMContentLoaded', () => {
                     'X-Destination-Url': 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent'
                 },
                 body: JSON.stringify({ 
-                    contents: [{ parts: [{ text: userMessage }] }] 
+                    contents: [{ role: 'user', parts: [{ text: userMessage }] }],
+                    generationConfig: { responseMimeType: "text/plain" }
                 })
             });
             if (!response.ok) throw new Error('Failed to get AI response.');
             
-            const { reply } = await response.json();
-            addMessageToUI('ai', reply);
+            const result = await response.json();
+            const aiReply = result.candidates[0].content.parts[0].text;
+            addMessageToUI('ai', aiReply);
             
         } catch (error) {
             console.error("Error sending message:", error);

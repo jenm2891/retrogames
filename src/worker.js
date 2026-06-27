@@ -88,11 +88,14 @@ export default {
 
         const requestBody = await request.json();
 
-        // If it's a Gemini endpoint, use the secure endpoint with API key from env
+        // If it's a Gemini endpoint, use the requested URL but inject the API key securely
         if (destinationUrl.includes('generativelanguage.googleapis.com')) {
-          const secureGeminiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${env.GEMINI_API_KEY}`;
+          const targetUrl = new URL(destinationUrl);
           
-          const proxyResponse = await fetch(secureGeminiUrl, {
+          // Inject the secret key into the query parameters
+          targetUrl.searchParams.set('key', env.GEMINI_API_KEY);
+          
+          const proxyResponse = await fetch(targetUrl.toString(), {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify(requestBody)
@@ -132,7 +135,6 @@ export default {
     return env.ASSETS.fetch(request);
   },
 };
-
 
 // --- Lightweight S3 Client for R2 (Unchanged) ---
 class S3Client {

@@ -77,8 +77,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         const generationConfig = {
-            responseMimeType: "application/json",
-            responseSchema: {
+            response_mime_type: "application/json",
+            response_schema: {
                 type: "OBJECT",
                 properties: {
                     "description": { "type": "STRING" },

@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 },
                 body: JSON.stringify({ 
                     contents: chatHistory,
-                    generationConfig: { responseMimeType: "application/json" }
+                    generation_config: { response_mime_type: "application/json" }
                 })
             });
             if (!response.ok) throw new Error(`AI API error: ${response.status}`);

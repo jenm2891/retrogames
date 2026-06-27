@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 },
                 body: JSON.stringify({ 
                     contents: [{ role: 'user', parts: [{ text: userMessage }] }],
-                    generationConfig: { responseMimeType: "text/plain" }
+                    generation_config: { response_mime_type: "text/plain" }
                 })
             });
             if (!response.ok) throw new Error('Failed to get AI response.');

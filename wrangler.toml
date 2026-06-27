@@ -1,5 +1,5 @@
 #:schema node_modules/wrangler/config-schema.json
-name = "arcadia-nostalgia"
+name = "retrogames"
 main = "src/worker.js"
 compatibility_date = "2026-06-22"
 

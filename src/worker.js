@@ -132,7 +132,12 @@ export default {
     }
 
     // --- Static Asset Server ---
-    return env.ASSETS.fetch(request);
+    try {
+      return await env.ASSETS.fetch(request);
+    } catch (e) {
+      console.error("Error serving asset:", e);
+      return new Response("Internal Server Error", { status: 500 });
+    }
   },
 };
 
